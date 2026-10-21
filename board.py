@@ -36,8 +36,9 @@ class Board:
             return False
         if self._grid[row][col] == EMPTY:
             return False
-        self._grid[row][col] = ""
-        return True
+        self._grid[row][col] = EMPTY
+        return
+
 
     def empty_cells(self):
         """Return a list of (row, col) pairs for every empty cell."""
