@@ -4,8 +4,10 @@ The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objecti
 
 # Requirements
 
+| ID | Requirement | Type | Priority | How Verified? |
+| 1 | 
 
 # Components
 
 
-#
+# 
