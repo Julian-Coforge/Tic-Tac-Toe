@@ -27,7 +27,7 @@ class HardAI(AIPlayer):
     def choose_move(self, board, mark):
         return
 
-    def change_mark(self, mark):
+    def _change_mark(self, mark):
         if mark == "X":
             return "O"
         else:
@@ -35,13 +35,23 @@ class HardAI(AIPlayer):
 
     def _minimax(self, board: Board, ai_mark, current_turn_mark):
 
-        opponents_mark = self.change_mark(ai_mark)
+        opponents_mark = self._change_mark(ai_mark)
 
         if board.has_won(ai_mark):
-            return 1
+            return +1
         elif board.has_won(opponents_mark):
             return -1
         elif board.is_full():
             return 0
 
-        
+        scores = []
+
+        for coord in board.empty_cells():
+            board.place_mark(coord[0], coord[1], current_turn_mark)
+            scores.append(self._minimax(board, ai_mark, opponents_mark))
+            board.remove_mark(coord[0], coord[1])
+
+        if current_turn_mark == ai_mark:
+            return max(scores)
+        else:
+            return min(scores)
