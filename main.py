@@ -7,12 +7,13 @@ def take_move_input(game: Game):
 
     while clean_input == None:
         move_input = input("Enter position (comma separated): ")
+        print("\n")
         clean_input = check_valid_input(move_input,game)
 
     return clean_input
 
 def check_valid_input(move_input: str, game: Game):
-    clean_input = move_input.replace(" ", "").split(" ")
+    clean_input = move_input.split(" ")
 
     # Check that exactly 2 values were entered
     if len(clean_input) != 2:
@@ -35,15 +36,22 @@ def check_valid_input(move_input: str, game: Game):
 
 def game_loop(game: Game):
 
-    while game.check_status == "Playing":
+    while game.check_status() == "Playing":
+        print(game.get_grid())
         clean_input = take_move_input(game)
         game.make_move(clean_input[0]-1,clean_input[1]-1)
+
+    print(game.get_grid())
+
+    if game.check_status() != "Draw":
         
+        print("\n"+game._current_mark + " has won!!!\n")
+
 
 def main():
     game = Game()
-    print("Welcome to Tic-Tac-Toe!")
-    take_move_input(game)
+    print("Welcome to Tic-Tac-Toe!\n")
+    game_loop(game)
 
 if __name__ == "__main__":
     main()

@@ -7,6 +7,7 @@ class Game():
 
         self._board = Board()
         self._current_mark = "X"
+        self._status = "Playing"
 
     def _switch_current_mark(self):
         if self._current_mark == "X":
@@ -21,14 +22,13 @@ class Game():
         return place_result
 
     def check_status(self):
-        status = "Playing"
         if self._board.has_won("X"):
-            status = "X"
+            self._status = "X"
         elif self._board.has_won("O"):
-            status = "O"
+            self._status = "O"
         elif self._board.is_full():
-            status = "Draw"
-        return status
+            self._status = "Draw"
+        return self._status
 
     def check_whos_turn(self):
         return self._current_mark
