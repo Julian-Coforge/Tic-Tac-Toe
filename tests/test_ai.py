@@ -2,9 +2,6 @@ from ai import AIPlayer, EasyAI, HardAI
 from board import Board
 import random
 
-def test_ai_player():
-    assert AIPlayer()
-
 def test_easy_returns_empty_cell():
     board = Board()
     board.place_mark(0, 0, "X")

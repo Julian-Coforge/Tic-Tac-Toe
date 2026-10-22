@@ -11,7 +11,7 @@ class AIPlayer(ABC):
         self._rng = rng
 
     @abstractmethod
-    def choose_move(self, board: Board, mark):
+    def choose_move(self, board, mark):
         """Return a (row, col) tuple for an empty cell on the board."""
 
 
