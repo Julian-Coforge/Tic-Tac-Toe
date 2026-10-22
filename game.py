@@ -16,20 +16,20 @@ class Game():
         return self._current_mark
 
     def make_move(self, row: int, col: int):
-        placeResult = self._board.place_mark(row, col, self._current_mark)
-        if placeResult:
+        place_result = self._board.place_mark(row, col, self._current_mark)
+        if place_result:
             self._switch_current_mark()
-        return placeResult
+        return place_result
 
     def check_status(self):
-        status = None
+        status = "Playing"
         if self._board.has_won("X"):
             status = "X"
-        elif self._
-
-
-    def check_stalemate(self):
-        return
+        elif self._board.has_won("O"):
+            status = "O"
+        elif self._board.is_full():
+            status = "Draw"
+        return status
 
     def check_whos_turn(self):
         return self._current_mark
