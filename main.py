@@ -36,16 +36,15 @@ def check_valid_input(move_input: str, game: Game):
 
 def game_loop(game: Game):
 
-    while game.check_status() == "Playing":
+    while game._status == "Playing":
         print(game.get_grid())
         clean_input = take_move_input(game)
         game.make_move(clean_input[0]-1,clean_input[1]-1)
+        game.check_status()
 
     print(game.get_grid())
 
-    if game.check_status() != "Draw":
-        
-        print("\n"+game._current_mark + " has won!!!\n")
+    print(game.check_status())
 
 
 def main():

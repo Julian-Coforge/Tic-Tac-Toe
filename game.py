@@ -28,10 +28,9 @@ class Game():
             self._status = "O"
         elif self._board.is_full():
             self._status = "Draw"
-        return self._status
+            return "The game is a draw..."
+        else:
+            self._status = "Playing"
+        return "\n" + self._status + " has won!!!\n"
 
     def check_whos_turn(self):
-        return self._current_mark
-
-    def get_grid(self):
-        return self._board.__str__()
