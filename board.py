@@ -39,7 +39,6 @@ class Board:
         self._grid[row][col] = EMPTY
         return
 
-
     def empty_cells(self):
         """Return a list of (row, col) pairs for every empty cell."""
         return [(r, c) for r in range(self._size) for c in range(self._size)
