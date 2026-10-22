@@ -3,11 +3,12 @@ from board import Board
 class Game():
     """Overall game logic, including playing turns, winning + other backend features"""
 
-    def __init__(self):
+    def __init__(self, ai = None):
 
         self._board = Board()
         self._current_mark = "X"
         self._status = "Playing"
+        self._ai = ai
 
     def _switch_current_mark(self):
         if self._current_mark == "X":
@@ -40,3 +41,14 @@ class Game():
 
     def get_grid(self):
         return self._board.__str__()
+
+    def is_ai_turn(self):
+        if self._ai is not None and self._current_mark == "O":
+            return True
+        else:
+            return False
+
+    def play_ai_turn(self):
+        chosen_move = self._ai.choose_move(self._board, self._current_mark)
+        self.make_move(chosen_move[0], chosen_move[1])
+        return chosen_move
