@@ -50,4 +50,5 @@ class Game():
 
     def play_ai_turn(self):
         chosen_move = self._ai.choose_move(self._board, self._current_mark)
-        return self.make_move(chosen_move[0], chosen_move[1])
+        self.make_move(chosen_move[0], chosen_move[1])
+        return chosen_move
