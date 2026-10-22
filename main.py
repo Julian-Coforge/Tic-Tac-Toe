@@ -33,12 +33,15 @@ def check_valid_input(move_input: str, game: Game):
     return clean_numbers
 
 def game_loop(game: Game):
-
-    while game._status == "Playing":
+    while game.check_status() == "Playing":
         print(game.get_grid())
-        clean_input = take_move_input(game)
-        game.make_move(clean_input[0]-1,clean_input[1]-1)
-        game.check_status()
+        if game.is_ai_turn() == True:
+                move = game.play_ai_turn()
+                print("\nThe AI has played: " + str(move[0]+1) + " " + str(move[1]+1) + "\n")
+        else: 
+            clean_input = take_move_input(game)
+            game.make_move(clean_input[0]-1,clean_input[1]-1)
+            game.check_status()
 
     print(game.get_grid())
 

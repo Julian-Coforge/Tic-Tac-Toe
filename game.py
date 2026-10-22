@@ -3,12 +3,12 @@ from board import Board
 class Game():
     """Overall game logic, including playing turns, winning + other backend features"""
 
-    def __init__(self):
+    def __init__(self, ai = None):
 
         self._board = Board()
         self._current_mark = "X"
         self._status = "Playing"
-        self._ai = None
+        self._ai = ai
 
     def _switch_current_mark(self):
         if self._current_mark == "X":
