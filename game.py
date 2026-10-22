@@ -6,37 +6,33 @@ class Game():
     def __init__(self):
 
         self._board = Board()
-        self.current_mark = "X"
+        self._current_mark = "X"
 
-    def initalise_game(self):
-        if len(self._board.empty_cells()) == 9:
-            return
-        else:
-            self.call_error("ERROR: During board initalisation")
-
-    def switch_current_mark(self):
-        if self.current_mark == "X":
-            self.current_mark = "O"
-        elif self.current_mark == "O":
-            self.current_mark = "X"
-        else:
-            self.call_error("ERROR: During switching mark")
-        return self.current_mark
+    def _switch_current_mark(self):
+        if self._current_mark == "X":
+            self._current_mark = "O"
+        elif self._current_mark == "O":
+            self._current_mark = "X"
+        return self._current_mark
 
     def make_move(self, row: int, col: int):
-        self._board.place_mark(row, col, self.current_mark)
-        self.switch_current_mark()
+        placeResult = self._board.place_mark(row, col, self._current_mark)
+        if placeResult:
+            self._switch_current_mark()
+        return placeResult
+
+    def check_status(self):
+        status = None
+        if self._board.has_won("X"):
+            status = "X"
+        elif self._
+
+
+    def check_stalemate(self):
         return
 
-    def check_won(self):
-        if self._board.has_won(self.current_mark) == True:
-            return True, self.current_mark
-
     def check_whos_turn(self):
-        return self.current_mark
+        return self._current_mark
 
     def get_grid(self):
         return self._board.__str__()
-
-    def call_error(self, errorMsg: str):
-        raise errorMsg
