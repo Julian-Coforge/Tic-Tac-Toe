@@ -22,10 +22,7 @@ class EasyAI(AIPlayer):
         return self._rng.choice(board.empty_cells())
 
 class HardAI(AIPlayer):
-    """Uses Minmax to make a choice"""
-
-    def choose_move(self, board, mark):
-        return
+    """Uses Minimax to make a choice"""
 
     def _change_mark(self, mark):
         if mark == "X":
@@ -48,10 +45,27 @@ class HardAI(AIPlayer):
 
         for coord in board.empty_cells():
             board.place_mark(coord[0], coord[1], current_turn_mark)
-            scores.append(self._minimax(board, ai_mark, opponents_mark))
+            scores.append(self._minimax(board, ai_mark, self._change_mark(current_turn_mark)))
             board.remove_mark(coord[0], coord[1])
 
         if current_turn_mark == ai_mark:
             return max(scores)
         else:
             return min(scores)
+
+    def choose_move(self, board, mark):
+
+        best_score = -2
+        best_move = None
+
+        opponents_mark = self._change_mark(mark)
+
+        for coord in board.empty_cells():
+            board.place_mark(coord[0], coord[1], mark)
+            score = self._minimax(board, mark, opponents_mark)
+            board.remove_mark(coord[0], coord[1])
+            if score > best_score:
+                best_score = score
+                best_move = (coord[0], coord[1])
+
+        return best_move
