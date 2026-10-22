@@ -41,3 +41,13 @@ class Game():
 
     def get_grid(self):
         return self._board.__str__()
+
+    def is_ai_turn(self):
+        if self._ai is not None and self._current_mark == "O":
+            return True
+        else:
+            return False
+
+    def play_ai_turn(self):
+        chosen_move = self._ai.choose_move(self._board, self._current_mark)
+        return self.make_move(chosen_move[0], chosen_move[1])
