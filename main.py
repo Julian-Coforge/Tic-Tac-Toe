@@ -6,14 +6,14 @@ def take_move_input(game: Game):
     clean_input = None
 
     while clean_input == None:
-        move_input = input("Enter position (comma separated): ")
+        move_input = input("Enter position (space separated): ")
         print("\n")
         clean_input = check_valid_input(move_input,game)
 
     return clean_input
 
 def check_valid_input(move_input: str, game: Game):
-    clean_input = move_input.split(" ")
+    clean_input = move_input.strip().split(" ")
 
     # Check that exactly 2 values were entered
     if len(clean_input) != 2:
@@ -44,8 +44,10 @@ def game_loop(game: Game):
 
     print(game.get_grid())
 
-    print(game.check_status())
-
+    if game.check_status() != "Draw":
+        print("\n"+game.check_status()+" has won!!!\n")
+    else:
+        print("\nThe game was a draw...\n")
 
 def main():
     game = Game()
