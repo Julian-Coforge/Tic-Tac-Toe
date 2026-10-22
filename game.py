@@ -13,7 +13,6 @@ class Game():
             self._current_mark = "O"
         elif self._current_mark == "O":
             self._current_mark = "X"
-        return self._current_mark
 
     def make_move(self, row: int, col: int):
         place_result = self._board.place_mark(row, col, self._current_mark)
