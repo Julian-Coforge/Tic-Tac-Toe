@@ -8,6 +8,7 @@ class Game():
         self._board = Board()
         self._current_mark = "X"
         self._status = "Playing"
+        self._ai = None
 
     def _switch_current_mark(self):
         if self._current_mark == "X":
