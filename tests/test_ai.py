@@ -1,6 +1,12 @@
 from ai import AIPlayer, EasyAI, HardAI
 from board import Board
 import random
+import pytest
+
+
+def test_ai_player_is_abstract():
+    with pytest.raises(TypeError):
+        AIPlayer()
 
 def test_easy_returns_empty_cell():
     board = Board()
@@ -33,7 +39,7 @@ def test_hard_does_not_change_board():
 
     empty_before = board.empty_cells()
 
-    ai = HardAI()
+    ai = HardAI(random.Random(42))
     ai.choose_move(board, "O")
 
     assert board.empty_cells() == empty_before
@@ -46,7 +52,7 @@ def test_hard_takes_winning_move():
     board.place_mark(1, 0, "X")
     board.place_mark(1, 1, "X")
 
-    ai = HardAI()
+    ai = HardAI(random.Random(42))
     move = ai.choose_move(board, "O")
 
     assert move == (0, 2)
@@ -59,14 +65,14 @@ def test_hard_blocks_opponent():
     board.place_mark(1, 0, "O")
     board.place_mark(2, 1, "O")
 
-    ai = HardAI()
+    ai = HardAI(random.Random(42))
     move = ai.choose_move(board, "O")
 
     assert move == (0, 2)
 
 
 def test_hard_never_loses():
-    ai = HardAI()
+    ai = HardAI(random.Random(42))
 
     def play_game(board):
         for row, col in board.empty_cells():

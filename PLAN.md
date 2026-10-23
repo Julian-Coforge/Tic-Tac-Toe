@@ -47,10 +47,10 @@ Quick Note: There are 4 branches in this repo, this is due to adding some additi
 
 1. Test size increased from initial plan
     - Plan: a few tests to check core logic during development
-    - Actual: 25 tests across 3 files
+    - Actual: 29 tests across 3 files
         - `test_board.py` (4 tests): empty board, placing and removing marks, finding empty cells
-        - `test_game.py` (15 tests): switching turns, out-of-bounds and taken cells, X win, O win, draw, AI turns
-        - `test_ai.py` (6 tests): Easy AI picks an empty cell, both AIs leave the board unchanged, Hard AI takes wins, blocks the opponent and never loses
+        - `test_game.py` (18 tests): switching turns, out-of-bounds and taken cells, X win, O win, draw, AI turns
+        - `test_ai.py` (7 tests): Easy AI picks an empty cell, both AIs leave the board unchanged, Hard AI takes wins, blocks the opponent and never loses
     - Why: Adding the AI opponents meant more behaviour to verify. The tests also run in CI on every push to main and on every pull request
 
 2. How valid marks are enforced (Requirement 6)
