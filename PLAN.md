@@ -2,8 +2,6 @@
 
 The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objective is to get line of 3 - either X's or O's - in either a vertical, horizontal, or diagonal line. The player can play against another player, or an AI opponent.
 
-Quick Note: There are 4 branches in this repo, this is due to adding some additional features after the 2 main feature branches had been closed, and the goal was not to push anything directly to main. Also, there are 3 commits prior to the first branch, 2 named Initial commit, this is because I had not added a detail into the gitignore in the first initial commit.
-
 # Requirements
 
 | ID | Requirement | Type | Priority | How Verified? |
@@ -47,11 +45,13 @@ Quick Note: There are 4 branches in this repo, this is due to adding some additi
 
 1. Test size increased from initial plan
     - Plan: a few tests to check core logic during development
-    - Actual: 25 tests across 3 files
+    - Actual: 29 tests across 3 files
         - `test_board.py` (4 tests): empty board, placing and removing marks, finding empty cells
-        - `test_game.py` (15 tests): switching turns, out-of-bounds and taken cells, X win, O win, draw, AI turns
-        - `test_ai.py` (6 tests): Easy AI picks an empty cell, both AIs leave the board unchanged, Hard AI takes wins, blocks the opponent and never loses
+        - `test_game.py` (18 tests): switching turns, out-of-bounds and taken cells, X win, O win, draw, AI turns
+        - `test_ai.py` (7 tests): Easy AI picks an empty cell, both AIs leave the board unchanged, Hard AI takes wins, blocks the opponent and never loses
     - Why: Adding the AI opponents meant more behaviour to verify. The tests also run in CI on every push to main and on every pull request
 
 2. How valid marks are enforced (Requirement 6)
     - Players never type a mark. `Game` switches between X and O after each valid move, so only X and O can be placed
+
+Quick Note: There are 4 branches in this repo, this is due to adding some additional features after the 2 main feature branches had been closed, and the goal was not to push anything directly to main. Also, there are 3 commits prior to the first branch, 2 named Initial commit, this is because I had not added a detail into the gitignore in the first initial commit.

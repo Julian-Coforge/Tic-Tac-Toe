@@ -31,6 +31,7 @@ def test_taken_cell():
     test_game = Game()
     test_game.make_move(0,0)
     assert test_game.make_move(0,0) == False and test_game.check_whos_turn() == "O"
+    assert test_game.get_grid().startswith("X")
 
 def test_game_win_x():
     game = Game()
@@ -50,6 +51,33 @@ def test_game_win_o():
     game.make_move(2, 2)  # X
     game.make_move(1, 2)  # O wins
     assert game.check_status() == "O"
+
+def test_game_win_column():
+    game = Game()
+    game.make_move(0, 0)  # X
+    game.make_move(0, 1)  # O
+    game.make_move(1, 0)  # X
+    game.make_move(1, 1)  # O
+    game.make_move(2, 0)  # X wins down column 1
+    assert game.check_status() == "X"
+
+def test_game_win_diagonal():
+    game = Game()
+    game.make_move(0, 0)  # X
+    game.make_move(0, 1)  # O
+    game.make_move(1, 1)  # X
+    game.make_move(0, 2)  # O
+    game.make_move(2, 2)  # X wins top-left to bottom-right
+    assert game.check_status() == "X"
+
+def test_game_win_anti_diagonal():
+    game = Game()
+    game.make_move(0, 2)  # X
+    game.make_move(0, 0)  # O
+    game.make_move(1, 1)  # X
+    game.make_move(0, 1)  # O
+    game.make_move(2, 0)  # X wins top-right to bottom-left
+    assert game.check_status() == "X"
 
 def test_draw():
     game = Game()
