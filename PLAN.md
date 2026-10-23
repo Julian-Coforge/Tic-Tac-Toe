@@ -2,6 +2,8 @@
 
 The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objective is to get line of 3 - either X's or O's - in either a vertical, horizontal, or diagonal line. The player can play against another player, or an AI opponent.
 
+Quick Note: There are 4 branches in this repo, this is due to adding some additional features after the 2 main feature branches had been closed, and the goal was not to push anything directly to main. Also, there are 3 commits prior to the first branch, 2 named Initial commit, this is because I had not added a detail into the gitignore in the first initial commit.
+
 # Requirements
 
 | ID | Requirement | Type | Priority | How Verified? |
