@@ -38,3 +38,16 @@ The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objecti
     - Option 3: Loop over rows and columns, then check both diagonals
     - Choice: Option 3
     - Why: Less repetition of code
+
+# What Changed
+
+1. Test size increased from initial plan
+    - Plan: a few tests to check core logic during development
+    - Actual: 25 tests across 3 files
+        - `test_board.py` (4 tests): empty board, placing and removing marks, finding empty cells
+        - `test_game.py` (15 tests): switching turns, out-of-bounds and taken cells, X win, O win, draw, AI turns
+        - `test_ai.py` (6 tests): Easy AI picks an empty cell, both AIs leave the board unchanged, Hard AI takes wins, blocks the opponent and never loses
+    - Why: Adding the AI opponents meant more behaviour to verify. The tests also run in CI on every push to main and on every pull request
+
+2. How valid marks are enforced (Requirement 6)
+    - Players never type a mark. `Game` switches between X and O after each valid move, so only X and O can be placed

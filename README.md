@@ -36,7 +36,7 @@ python main.py
 3. On your turn, enter the row and column separated by a space, using numbers 1–3. For example, `2 3` means row 2, column 3.
 4. Get 3 in a row (across, down, or diagonally) to win. If the board fills up with no winner, the game is a draw.
 
-When you play the AI, you are always **X** and the AI is always **O**.
+When you play the AI, you are always X and the AI is always O.
 
 ## Project Structure
 
