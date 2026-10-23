@@ -1,10 +1,11 @@
-# The Game
+# Goal
 
-The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objective is to get line of 3 - either X's or O's - in either a vertical, horizontal, or diagonal line. The player can player against another player, or an AI opponent.
+The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objective is to get line of 3 - either X's or O's - in either a vertical, horizontal, or diagonal line. The player can play against another player, or an AI opponent.
 
 # Requirements
 
 | ID | Requirement | Type | Priority | How Verified? |
+|---|---|---|---|---|
 | 1 | The game recognises when there is 3 in a row/column/diagonal and gives the win to the appropriate player | Functional | Must | Test all win cases |
 | 2 | The game allows only 2 players, with only 1 with permission to update the board per turn | Functional | Must | Manually play in attempt to interfere with board updates |
 | 3 | Attempting to place a mark out of the board's bounds rejects the input | Functional | Must | Use out of range values during a game to see result |
@@ -15,13 +16,14 @@ The game is Tic-Tac-Toe, a game with a 3x3 grid and 2 players, where the objecti
 # Components
 
 | File | Responsibility |
+|---|---|
 | board.py | Creates the board, contains functions for placing/removing marks and wins. |
 | ai.py | Holds the logic for the Easy and Hard AI opponenets. |
-| game.py | Main game logic, such as providing turns for each player, selecting mode, detecting wins. |
+| game.py | Main game logic, such as providing turns for each player, detecting wins. |
 | main.py | Provides the 'UI' for the player(s), providing inputs and printing outputs. |
 | PLAN.md | Holds the Game details, Requirements, Components and Decisions |
 | README.md | Contains information about the game, how to run and play. |
-| .github/workflows/ci.yml | CLI Pipeline |
+| .github/workflows/ci.yml | CI Pipeline |
 | tests/ | Contains multiple files for testing logic throughout development |
 
 # Decisions
